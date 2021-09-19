@@ -2,21 +2,21 @@ import java.util.Objects;
 
 public class CustomHashSetImpl<T> implements CustomHashSet<T> {
 
+    /**
+     * Контейнер для объекта.
+     */
     private static class Node<T> {
         T item;
         int hash;
         Node<T> next;
 
-        /**
-         * Контейнер для объекта.
-         */
         public Node(T item, int hash) {
             this.item = item;
             this.hash = hash;
         }
     }
 
-    private final int DEFAULT_CAPACITY = 10;
+    private final int DEFAULT_CAPACITY = 16;
     private final Node<T>[] table = new Node[DEFAULT_CAPACITY];
     private int size;
     private int capacity;
